@@ -37,8 +37,13 @@
                 <li class="nav-item">
   <a class="nav-link" href="reservation.html">My Reservation</a>
         </li>
-        <li class="nav-item">
-  <a class="nav-link" href="property.html">My Rental Units</a>
+              <li class="nav-item dropdown">
+         <a class="nav-link dropdown-toggle" href="property.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+My Rental Units</a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                              <a class="dropdown-item" href="property.html">Rental List</a>
+                      <a class="dropdown-item" href="property-comments.html">Comments Page</a>
+        </div>
         </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="log_in.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -62,57 +67,158 @@
         </ul> </div>
 </nav>
 
-<!-- User Comment System Section -->
+  <!-- History Booking Page -->
 <div class="container my-5">
-  <h2>User Comment System</h2>
-  <!-- Example comment -->
+  <h2>History Booking</h2>
+  <!-- Example booking card -->
   <div class="card my-3">
     <div class="card-header">
-      <span class="font-weight-bold">John Doe</span>
-      <span class="float-right text-muted">Feb 6, 2023</span>
+      <span class="font-weight-bold">Order ID: 123456</span>
+      <span class="float-right text-muted">Jan 1, 2023</span>
     </div>
     <div class="card-body">
-      <p>Comment about: <span class="font-weight-bold">Article Quality</span></p>
-      Great article! I learned a lot from it.
+      <p>Hotel: <span class="font-weight-bold">Grand Hotel</span></p>
+      <p>Room Type: <span class="font-weight-bold">Deluxe Room</span></p>
+      <p>Check-In Date: <span class="font-weight-bold">Jan 1, 2023</span></p>
+      <p>Check-Out Date: <span class="font-weight-bold">Jan 3, 2023</span></p>
+      <a href="#" class="btn btn-primary my-2" data-toggle="modal" data-target="#exampleModal">Leave a Comment</a>
     </div>
   </div>
-  <!-- Another example comment -->
+  <!-- Another example booking card -->
   <div class="card my-3">
     <div class="card-header">
-      <span class="font-weight-bold">Jane Doe</span>
-      <span class="float-right text-muted">Feb 7, 2023</span>
+      <span class="font-weight-bold">Order ID: 654321</span>
+      <span class="float-right text-muted">Jan 4, 2023</span>
     </div>
     <div class="card-body">
-      <p>Comment about: <span class="font-weight-bold">Article Clarity</span></p>
-      I found the article to be very clear and easy to understand.
+      <p>Hotel: <span class="font-weight-bold">Luxury Hotel</span></p>
+      <p>Room Type: <span class="font-weight-bold">Executive Suite</span></p>
+      <p>Check-In Date: <span class="font-weight-bold">Jan 4, 2023</span></p>
+      <p>Check-Out Date: <span class="font-weight-bold">Jan 6, 2023</span></p>
+      <a href="#" class="btn btn-primary my-2" data-toggle="modal" data-target="#exampleModal">Leave a Comment</a>
     </div>
   </div>
-  <!-- Comment submission form -->
-  <form class="my-comment-submission">
-          <div class="form-group">
-      <label for="propertySelect">Comment about</label>
-      <select class="form-control" id="propertySelect">
-        <option value="Article Quality">Article Quality</option>
-        <option value="Article Clarity">Article Clarity</option>
-        <!-- Add more options here -->
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="usernameInput">Username</label>
-      <input type="text" class="form-control" id="usernameInput">
-    </div>
-    <div class="form-group">
-      <label for="commentInput">Comment</label>
-      <textarea class="form-control" id="commentInput" rows="3"></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
 </div>
+
+
+<!-- Comment Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Leave a Comment</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Comment Form -->
+        <form>
+          <div class="form-group">
+            <label for="ratingInput">Rating</label>
+            <select class="form-control" id="ratingInput">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="commentText">Comment</label>
+            <textarea class="form-control" id="commentText" rows="3"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Submit Comment</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container my-5">
+  <h2>History Orders</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Order Number</th>
+        <th>Hotel Name</th>
+        <th>Check-in Date</th>
+        <th>Check-out Date</th>
+        <th>Comment</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Example Order -->
+      <tr>
+        <td>12345</td>
+        <td>Hotel Paradise</td>
+        <td>Feb 6, 2023</td>
+        <td>Feb 7, 2023</td>
+        <td>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Leave Comment
+          </button>
+        </td>
+      </tr>
+            <!-- Another example Order -->
+      <tr>
+        <td>23456</td>
+        <td>Luxury Hotel</td>
+        <td>Feb 8, 2023</td>
+        <td>Feb 10, 2023</td>
+        <td>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+Leave Comment
+</button>
+</td>
+</tr>
+
+<!-- Comment Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Leave a Comment</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="ratingSelect">Rating</label>
+            <select class="form-control" id="ratingSelect">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="commentTextArea">Comment</label>
+            <textarea class="form-control" id="commentTextArea" rows="3"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+    </tbody>
+  </table>
+
 <!-- Footer -->
 <footer class="bg-light py-3">
   <div class="container">
     <p class="text-center">
-      &copy; Copyright 2022 -  Bin Wang
+      &copy; Copyright 2023 -  Bin Wang
     </p>
   </div>
 </footer>

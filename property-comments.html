@@ -22,6 +22,7 @@
 	<script src="js/my.js"></script>
   <link rel="shortcut icon" type="image/x-icon" href="favicon.png">
 
+
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">Restify</a>
@@ -36,7 +37,7 @@
                 <li class="nav-item">
   <a class="nav-link" href="reservation.html">My Reservation</a>
         </li>
-               <li class="nav-item dropdown">
+              <li class="nav-item dropdown">
          <a class="nav-link dropdown-toggle" href="property.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 My Rental Units</a>
                           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -50,7 +51,7 @@ My Rental Units</a>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <a class="dropdown-item" href="log_in.html">Log in</a>
-                                        <div class="dropdown-divider"></div>
+                            <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="my_profile.html">My Profile</a>
                       <a class="dropdown-item" href="user_comment_system.html">User Comment System</a>
         </div>
@@ -58,30 +59,86 @@ My Rental Units</a>
               <li class="nav-item">
         <a class="nav-link" href="log_out.html">Log Out</a>
       </li>
-        <li class="nav-item dropdown">
-  <a class="nav-link" href="#">
+
+  <a class="nav-link" href="notifications.html">
     <i class="fas fa-bell"></i>
       Notifications
   </a>
-        </li>
-    </ul>
-
-  </div>
+        </ul> </div>
 </nav>
-    <div class="container mt-5">
-  <div class="alert alert-success" role="alert">
-    You have successfully logged out!
-  </div>
-  <div class="text-center">
-    Redirecting to the home page in <span id="countdown">3</span> seconds...
+
+
+  <div class="container mt-5">
+      <h2 id="tenants-section">Tenants Information</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Tenant ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>T01</td>
+            <td>John Doe</td>
+            <td>john.doe@email.com</td>
+            <td>
+              <button class="btn btn-primary" data-toggle="modal" data-target="#reviewModal">
+                Review
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>T02</td>
+            <td>Jane Doe</td>
+            <td>jane.doe@email.com</td>
+            <td>
+              <button class="btn btn-primary" data-toggle="modal" data-target="#reviewModal">
+                Review
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
-
-<footer class="bg-light py-3">
-  <div class="container">
-    <p class="text-center">
-      &copy; Copyright 2023 -  Bin Wang
-    </p>
+<!-- Review Modal -->
+<div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="reviewModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="reviewModalLabel">Review Tenant</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="rating">Rating:</label>
+            <div class="stars">
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+              <i class="fa fa-star" aria-hidden="true"></i>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="review">Review:</label>
+            <textarea class="form-control" rows="5" id="review"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
   </div>
-</footer>
+</div>
+</body>
 </html>
